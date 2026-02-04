@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valentine Interactive 💘</title>
+  <style>
+    * { box-sizing: border-box; font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, sans-serif; }
+    body { margin:0; height:100vh; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#fc88ce,#f8b5d0); overflow:hidden;  }
+    .card { background:rgb(241, 243, 244); padding:45px 35px; border-radius:24px; box-shadow:0 25px 50px rgba(0,0,0,0.15); text-align:center; max-width:340px; width:90%; animation:popIn 0.8s ease; position:relative; }
+    h1 { font-size:24px; margin-bottom:10px; }
+    p { color:#666; font-size:14px; margin-bottom:30px; }
+    .buttons { display:flex; justify-content:center; gap:16px; }
+    button { border:none; padding:12px 26px; font-size:14px; border-radius:999px; cursor:pointer; transition:all 0.25s ease; white-space:nowrap; }
+    .yes { background:#980b3a; color:rgba(255, 255, 255, 0.963); box-shadow:0 10px 20px rgba(255,77,136,0.4); }
+    .yes:hover { transform:scale(1.1); }
+    .no { background:#f7f3f3; color:#333; }
+    @keyframes popIn { from { opacity:0; transform:scale(0.8); } to { opacity:1; transform:scale(1); } }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="page1">
+    <img src="images/page1.gif" style="width:200px; display:block; margin:10px auto;">
+
+    
+    <h1>Will you be my Valentine?... 💘</h1>
+    <p>Choose wisely 😉</p>
+    <div class="buttons">
+      <button class="yes" onclick="yesValentine()">Yes 💕</button>
+      <button class="no" onclick="noValentine()">No 🙃</button>
+    </div>
+  </div>
+
+ 
+
+  <div class="card" id="page2" style="display:none;">
+    <img src="images/page2.jpg" style="width:200px; display:block; margin: 10px auto;">
+    
+    <h1>Do you love me? 💞</h1>
+    <div class="buttons">
+      <button class="yes" onclick="yesLove()">Yes ❤️</button>
+      <button class="no" onclick="noLove()">No 😢</button>
+    </div>
+  </div>
+
+  <div class="card" id="page3" style="display:none;">
+    <img src="images/page3.gif" style="width:200px; display:block; margin: 10px auto;">
+
+    <h1>Please Think Again! 😢</h1>
+    <p>inta jaldi kadu alochinchu kada....🥺</p>
+    <div class="buttons">
+      <button class="yes" onclick="yesMoment()">Yes 💖</button>
+      <button class="no" onclick="noMoment()">No 😢</button>
+    </div>
+  </div>
+
+  <div class="card" id="page4" style="display:none;">
+    <img src="images/page4.gif" style="width:200px; display:block; margin: 10px auto;">
+    
+    <h1>Na bujji Kada Oppukova...😉😍</h1>
+    <p>yenduku ila chestunnav oppuko kada..😢</p>
+    <div class="buttons">
+      <button class="yes" onclick="yesMoment()">Yes 💖</button>
+      <button class="no" onclick="page5()">No 😢</button>
+    </div>
+  </div>
+
+  <div class="card" id="page5" style="display:none;">
+    <div style="display:flex; justify-content:center; gap:10px;">
+    <img src="images/page5 1.gif" style="width:150px; display:block; margin: 10px auto;">
+    <img src="images/page5 2.gif" style="width:150px; display:block; margin: 10px auto;">
+    </div>
+    
+    <h1>Yenta Ani Code Cheyyistav Baby</h1>
+    <p>Oppesko kada...</p>
+    <div class="buttons">
+      <button class="yes" onclick="finalYes()">Yes 💖</button>
+      <button class="no" onmouseover="moveNo(this)">No 🙃</button>
+    </div>
+  </div>
+
+  <div class="card" id="page6" style="display:none;">
+    <img src="images/final.gif" style="width:200px; display:block; margin: 10px auto;">
+    <h1>Hurryyyyy...Finally you Accepted🥹</h1>
+    <p>Nak telusu nuvvu Oppukuntav ani...🤭🫣</p>
+    <p> I just want to tell you how lucky I'm to have you....<br>
+        Use dektey hi chehra yun khil jata hai ,<br>
+        jaise uske hone se mujhe sab kuc mil jata hai.<br>
+
+        Kaise batau ki tu kya hai mere liye,<br>
+        Kaise batau ki tu kya hai mere liye,<br> 
+        tuhe bass ek baar dekh lu to mera pura din ban jata hai!....❤️<br>
+    </p>
+  </div>
+
+
+  <script>
+    function showPage(id){
+      document.querySelectorAll('.card').forEach(c => c.style.display='none');
+      document.getElementById(id).style.display='block';
+    }
+
+    function yesValentine(){
+      showPage('page6');
+    }
+
+    function noValentine(){
+      showPage('page2');
+    }
+
+    function yesLove(){
+      showAlert('Why dont you wanna be my valentine then?...😤<br> Ye Chestey Em Avtadi Anta🤔😥<br> <img src="images/page2 1.gif" style="width:200px; display:block; margin: 10px auto;">')
+      showPage('page1');
+    }
+
+    function noLove(){
+      showPage('page3');
+    }
+
+    function yesMoment(){
+      showAlert('Inta varaku vachav ga refresh chesi nen chesindi mottam chudu...🤭🫣<br> <img src="images/drama.gif" style="width:200px; display:block; margin: 10px auto;">');
+      showPage('page6');
+    }
+
+    function noMoment(){
+      showPage('page4');
+    }
+
+    function page5(){
+      showPage('page5');
+    }
+
+    function finalYes(){
+      showAlert('Yay! Hammayya...You just made my heart very happy....😁');
+      showPage('page6');
+    }
+
+    function moveNo(btn){
+      const x = Math.random()*120 - 60;
+      const y = Math.random()*120 - 60;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function showAlert(message){
+      const overlay = document.createElement('div');
+      overlay.style.position='fixed';
+      overlay.style.top=0;
+      overlay.style.left=0;
+      overlay.style.width='100%';
+      overlay.style.height='100%';
+      overlay.style.background='rgba(0,0,0,0.6)';
+      overlay.style.display='flex';
+      overlay.style.alignItems='center';
+      overlay.style.justifyContent='center';
+      overlay.style.zIndex=1000;
+
+      const box = document.createElement('div');
+      box.style.background='white';
+      box.style.padding='30px';
+      box.style.borderRadius='20px';
+      box.style.textAlign='center';
+      box.style.maxWidth='300px';
+      box.innerHTML=`<p style='font-size:16px;'>${message}</p><button onclick='document.body.removeChild(this.parentNode.parentNode)'>OK</button>`;
+
+      overlay.appendChild(box);
+      document.body.appendChild(overlay);
+    }
+  </script>
+
+</body>
+</html>
